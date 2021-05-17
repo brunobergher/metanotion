@@ -1,0 +1,74 @@
+<html>
+<title>Metabase Notion Embed</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap');
+
+body {
+    font-family: 'Lato', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+	padding: 0;
+}
+
+form {
+	left: 50%;
+	position: absolute;
+	text-align: center;
+	top: 50%;
+	transform: translate(-50%, -50%);
+}
+
+form img,
+form input,
+form button {
+	display: block;
+	font-family: Lato;
+	margin: 10px auto;
+}
+
+form input {
+	border: 1px solid #DADBDA;
+	border-radius: 5px;
+	font-size: 18px;
+	padding: 10px 20px;
+	min-width: 400px;
+	text-align: center;
+}
+
+form button {
+	appearance: none;
+	background: #509ee3;
+	border: none;
+	border-radius: 6px;
+	color: white;
+	cursor: hand;
+	font-size: 14px;
+	font-weight: bold;
+	padding: 10px 20px;
+}
+
+</style>
+<body>
+  <form id="the-form" method="get">
+  	<img src="https://www.metabase.com/images/logo.svg" />
+  	<input type="text" name="url" placeholder="Enter public sharing URL" />
+  	<button type="Submit">Get Embeddable Page</button>
+  </form>
+
+<script>
+    var url = (new URL(document.location)).searchParams.get("url");
+    if(url.length > 0 && url.indexOf("/public/") > -1) {
+    	document.getElementById("the-form").remove();
+
+    	var iframe = document.createElement("iframe");
+	    iframe.setAttribute("height", "100%");
+	    iframe.setAttribute("width", "100%");
+	    iframe.setAttribute("frameborder", "0");
+	    iframe.setAttribute("allowtransparency", true);
+	    
+	    document.body.appendChild(iframe)
+	    iframe.src = url;
+    }
+</script>
+
+</script>
+</body>
+</html>
