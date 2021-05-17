@@ -1,7 +1,16 @@
 <iframe
-    src="https://stats.metabase.com/public/question/ef85f638-a0ae-48bf-9cf2-4e7455cd894f"
+    id="frame"
+    src="about:blank"
     frameborder="0"
     width="100%"
     height="100%"
     allowtransparency
 ></iframe>
+
+
+<script>
+    var url = (new URL(document.location)).searchParams.get("url");
+    alert("URL: " + url);
+    document.getElementById("frame").src = "https://" + url;
+</script>
+
